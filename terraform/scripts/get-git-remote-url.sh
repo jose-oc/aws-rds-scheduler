@@ -9,8 +9,7 @@ cd $here && repo="$(git config --get remote.origin.url)" || repo="none"
 
 if [ "${repo}" != "none" ]; then
     repo="$(echo ${repo} | cut -d'@' -f2)"
-    repo="git@${repo}"
-
+    repo=${repo/:/\/}
 fi
 
 echo "{ \"repo\": \"${repo}\" }"

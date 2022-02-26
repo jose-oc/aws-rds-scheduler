@@ -1,6 +1,7 @@
 # IAM Role to be assumed by the Lambda function.
 resource "aws_iam_role" "rds_scheduler_lambda_role" {
   name        = "${local.lambda_function_name}-role"
+  path        = "/rds-scheduler/"
   description = "Role to be assumed by the lambda function to start or stop RDS database instances"
 
   assume_role_policy = jsonencode({
